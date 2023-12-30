@@ -8,6 +8,7 @@ import { staticHome } from '../../../payload/seed/home-static'
 import { fetchDoc } from '../../_api/fetchDoc'
 import { fetchDocs } from '../../_api/fetchDocs'
 import { Blocks } from '../../_components/Blocks'
+import { Gutter } from '../../_components/Gutter'
 import { Hero } from '../../_components/Hero'
 import { generateMeta } from '../../_utilities/generateMeta'
 
@@ -52,11 +53,19 @@ export default async function Page({ params: { slug = 'home' } }) {
 
   return (
     <React.Fragment>
-      <Hero {...hero} />
-      <Blocks
-        blocks={layout}
-        disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
-      />
+      {slug === 'home' ? (
+        <Gutter>
+          <Hero {...hero} />
+        </Gutter>
+      ) : (
+        <>
+          <Hero {...hero} />
+          <Blocks
+            blocks={layout}
+            disableTopPadding={!hero || hero?.type === 'none' || hero?.type === 'lowImpact'}
+          />
+        </>
+      )}
     </React.Fragment>
   )
 }
