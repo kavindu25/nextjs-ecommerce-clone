@@ -13,14 +13,18 @@ const Promotion = () => {
           choices and amazing deals. Don't miss out!
         </p>
         <ul className={classes.stats}>
-          <li className={classes.statBox}>
-            <h4>5</h4>
-            <p>Days</p>
-          </li>
+          <li></li>
         </ul>
       </div>
     </section>
   )
 }
+
+const StatBox = ({ label, value }: { label: string; value: number }) => (
+  <li className={classes.statBox}>
+    <h4>{value}</h4>
+    <p>{label}</p>
+  </li>
+)
 
 export default Promotion
