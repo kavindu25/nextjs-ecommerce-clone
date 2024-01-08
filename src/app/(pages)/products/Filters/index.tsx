@@ -14,6 +14,9 @@ const Filters = ({ categories }: { categories: Category[] }) => {
   const { categoryFilters, sort, setCategoryFilters, setSort } = useFilter()
 
   const handleCategories = (categoryId: string) => {}
+  const handleSort = (value: string) => {
+    setSort(value)
+  }
   return (
     <div className={classes.filters}>
       <div>
@@ -40,6 +43,13 @@ const Filters = ({ categories }: { categories: Category[] }) => {
             label="Latest"
             value="-createdAt"
             isSelected={sort === '-createdAt'}
+            onRadioChange={handleSort}
+            groupName="sort"
+          />
+          <RadioButton
+            label="Oldest"
+            value="createdAt"
+            isSelected={sort === 'createdAt'}
             onRadioChange={handleSort}
             groupName="sort"
           />
