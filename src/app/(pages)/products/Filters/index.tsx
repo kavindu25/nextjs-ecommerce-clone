@@ -21,7 +21,7 @@ const Filters = ({ categories }: { categories: Category[] }) => {
       setCategoryFilters([...categoryFilters, categoryId])
     }
   }
-  
+
   const handleSort = (value: string) => {
     setSort(value)
   }
